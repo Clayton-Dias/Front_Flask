@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {#Carregando o CSS#}
+    <link rel="stylesheet" href="{{page.site.css}}">
+    {#Carrega o CSS adicional, caso exista#}
+    {% if page.css %}
+    <link rel="stylesheet" href="/static/css/{{page.css}}">
+    {% endif %}
+
+    {#Logo do Site#}
+    <link rel="shortcut icon" href="{{page.site.logo}}" type="image/x-icon">
+
+
+    {% if page.title != "" %}
+    <title>{{page.site.name}} - {{page.title}}</title>
+    {% else %}
+    <title>{{page.site.name}}</title>
+    {% endif %}
+</head>
+<body>
+    <div id="wrap">
+
+        {#Cabeçalho#}
+        <header>
+            <a href="/" title="Página Inicial">
+                <img src="{{page.site.logo}}" alt="Logo do Site">
+                <h1>
+                    Blog
+                    <small>para novatos, como eu.</small> <!--Tag <small> reduz em 25% o tamanho do texto em referência ao texto Principal-->
+                </h1>
+                {{page.site.toogle|safe}}
+            </a>
+
+            {#Campo de busca || Formulário de busca#}
+            {{page.site.busca|safe}}
+        </header>
+
+        {#Menu Principal#}
+        <nav>
+            {#Início|Home|Página Inicial#}
+            {{page.site.menu.home|safe}}
+
+            {#Contatos#}
+            {{page.site.menu.contato|safe}}
+
+            {#Sobre#}
+            {{page.site.menu.sobre|safe}}
+
+        </nav>
+
+        {#Conteúdo principal#}
+        <main>
+
+            <article>{% block article %}{% endblock %}</article>
+
+            <aside>{% block aside %}{% endblock %}</aside>
+        </main>
+
+        {#Rodapé#}
+        <footer>
+            <div class="footer_top">
+            {#Início|Home|Página Inicial#}
+            {#Usando o do menu pois direcionar para a página home(home.html)#}
+            {{page.site.menu.home|safe}}
+
+            {#Copyright#}
+            {{page.site.footer.license|safe}}
+
+            {#Ir para o topo da página#}
+            {{page.site.footer.top|safe}}
+            </div>
+
+            <div class="footer_botton">
+                <nav>
+                    <h4>Redes Sociais</h4>
+                    {# Facebook #}
+                    {{page.site.redesSociais.facebook|safe}}
+                    
+                    {# X (Twitter) #}
+                    {{page.site.redesSociais.x|safe}}
+                    
+                    {# Github #}
+                    {{page.site.redesSociais.github|safe}}
+                </nav>
+
+                <nav>
+                    <h4>Links Rápidos</h4>
+                        {#Políticas de Privacidade#}
+                        {{page.site.links.politica|safe}}
+                        
+                        {#Contatos#}
+                        {#Usando o do menu pois direcionar para a página de contatos(contacts.html)#}
+                        {{page.site.menu.contato|safe}}
+                        
+                        {#Sobre#}
+                        {#Usando o do menu pois direcionar para a página sonre(about.html)#}
+                        {{page.site.menu.sobre|safe}}
+                </nav>
+            </div>
+        </footer>
+        &nbsp;
+        <hr style="margin: .5rem; border: 1px solid transparent">
+    </div>
+    
+    <div id="menuSmoke"></div>
+
+    </div>
+    <!--Javascript sempre no final -->
+    <!--Código Javascript sempre dentro da tag <script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{page.site.js}}"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* Folha de estilo da página de contatos (contacts.html) */
+main form{
+    margin: auto;
+    display: block;
+    max-width: 500px;
+}
+/* Estilo para rótulos dentro do elemento main */
+main label {
+    display: block; /* Exibe o rótulo como um bloco, ocupando a linha inteira */
+    padding: 0 0 0.5rem 0.25rem; /* Espaçamento interno (padding) */
+}
+
+/* Estilo geral para inputs, textareas e botões dentro do elemento main */
+main input,
+main textarea,
+main button {
+    padding: 0.5rem; /* Espaçamento interno */
+    border-radius: 1rem; /* Bordas arredondadas */
+}
+
+/* Estilo para inputs e textareas dentro do elemento main */
+main input,
+main textarea {
+    width: 100%; /* Largura total do elemento pai */    
+}
+
+main input:invalid,
+main textarea:invalid {
+    border: 1px solid red; /* Borda vermelha fina */
+    border-bottom: 2px solid red; /* Borda inferior mais grossa */
+    border-right: 2px solid red; /* Borda direita mais grossa */
+    background-color: rgb(255, 240, 240); /* Cor de fundo clara */
+}
+
+/* Estilo específico para textareas dentro do elemento main */
+main textarea {
+    height: 6rem; /* Altura específica para textareas */
+    resize: vertical; /* Permite redimensionar apenas verticalmente */
+}
+
+/* Estilo para botões dentro do elemento main */
+main button {
+    border: none; /* Remove a borda padrão */
+    background-color: gray; /* Cor de fundo cinza */
+    color: white; /* Cor do texto branca */
+    padding-left: 1rem; /* Espaçamento interno à esquerda */
+    padding-right: 1rem; /* Espaçamento interno à direita */
+    pointer-events: none; /* Desabilita interações com o botão */
+}
+
+/* Estilo para inputs e textareas válidos dentro do elemento main */
+main input:valid,
+main textarea:valid {
+    border: 1px solid green; /* Borda verde fina */
+    border-bottom: 2px solid green; /* Borda inferior verde mais grossa */
+    border-right: 2px solid green; /* Borda direita verde mais grossa */
+    background-color: rgb(232, 240, 254); /* Cor de fundo clara e diferente */
+}
+
+/* Estilo para o botão dentro do formulário válido */
+main form:valid button {
+    background-color: steelblue; /* Cor de fundo azulada */
+    pointer-events: all; /* Reabilita interações com o botão */
+    cursor: pointer; /* Muda o cursor para indicar clicabilidade */
+}
+
+/* Estilo para elementos small dentro do formulário */
+main form small {
+    color: gray; /* Cor do texto cinza */
+}
+
+main aside div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+main aside div i {
+    margin-top: .5rem;
+}
